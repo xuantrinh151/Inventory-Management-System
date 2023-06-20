@@ -3,6 +3,7 @@ package com.airbus.management.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.airbus.management.dto.ProductSdo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,10 +18,10 @@ public class ProductServiceImpl implements ProductService {
 	ProductServiceRepository productServiceRepository;
 	
 	@Override
-	public List<Product> getAllProducts() {
+	public List<ProductSdo> getAllProducts() {
 		// TODO Auto-generated method stub
 		
-		List<Product> result=new ArrayList<>();
+		List<ProductSdo> result=new ArrayList<>();
 		
 		try {
 			result= productServiceRepository.getAllProducts();
@@ -34,9 +35,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getProductsByCategory(String categoryName) {
+	public List<ProductSdo> getProductsByCategory(String categoryName) {
 		// TODO Auto-generated method stub
-		List<Product> result=new ArrayList<>();
+		List<ProductSdo> result=new ArrayList<>();
 		
 		try {
 			result= productServiceRepository.getProductsByCategory(categoryName);

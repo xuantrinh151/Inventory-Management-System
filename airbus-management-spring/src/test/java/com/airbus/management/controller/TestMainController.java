@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.airbus.management.dto.ProductSdo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,12 +28,12 @@ public class TestMainController {
 	
 	@Test
 	public void testGetAllProducts() {
-		Product product =new Product();
+		ProductSdo product =new ProductSdo();
 		
 		product.setProductId("A01");
 		product.setProductName("Airport_test");
 		
-		List<Product> productList=new ArrayList<>();
+		List<ProductSdo> productList=new ArrayList<>();
 		
 		productList.add(product);
 		

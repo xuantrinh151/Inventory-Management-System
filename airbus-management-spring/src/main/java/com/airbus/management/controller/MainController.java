@@ -2,6 +2,7 @@ package com.airbus.management.controller;
 
 import java.util.List;
 
+import com.airbus.management.dto.ProductSdo;
 import com.airbus.management.exception.CategoryAlreadyExistsException;
 import com.airbus.management.model.Category;
 import com.airbus.management.service.CategoryService;
@@ -45,14 +46,14 @@ public class MainController {
 
 	@GetMapping("/getAllProducts")
 	public Object getAllProducts(){
-		List<Product> result= productService.getAllProducts();
+		List<ProductSdo> result= productService.getAllProducts();
 		return result;
 	}
 	
 	@GetMapping("/getProductsByCategory/{categoryId}")
 	public Object getProductsByCategory(@PathVariable("categoryId") String categoryId) throws JsonProcessingException{
 
-		List<Product> result= productService.getProductsByCategory(categoryId);
+		List<ProductSdo> result= productService.getProductsByCategory(categoryId);
 		String listToJson = objectMapper.writeValueAsString(result);
 		return listToJson;
 	}

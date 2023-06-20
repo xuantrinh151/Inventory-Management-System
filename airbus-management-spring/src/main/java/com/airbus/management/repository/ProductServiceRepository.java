@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.airbus.management.dto.ProductSdo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,22 +22,24 @@ public class ProductServiceRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	
-	public List<Product> getAllProducts() {
+	public List<ProductSdo> getAllProducts() {
 		
 		
-		List<Product> productList=new ArrayList<>();
+		List<ProductSdo> productList=new ArrayList<>();
 		
-		 productList=jdbcTemplate.query("SELECT *from Product", new RowMapper<Product>(){  
+		 productList=jdbcTemplate.query("SELECT p.productId,p.productName,p.productDescription,p.units,c.category_name from product p \n" +
+				 "INNER JOIN category c \n" +
+				 "ON p.category = c.category_id", new RowMapper<ProductSdo>(){
 			   
 			@Override
-			public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+			public ProductSdo mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
-									
-				Product product=new Product();
+
+				ProductSdo product=new ProductSdo();
 				product.setProductId(rs.getString("productId"));
 				product.setProductName(rs.getString("productName"));
 				product.setProductDescription(rs.getString("productDescription"));
-				product.setProductCategory(rs.getString("category"));
+				product.setProductCategory(rs.getString("category_name"));
 				product.setUnits(rs.getInt("units"));
 				
 				
@@ -47,21 +50,24 @@ public class ProductServiceRepository {
 		return productList;
 		}
 	
-	public List<Product> getProductsByCategory(String categoryName) {
+	public List<ProductSdo> getProductsByCategory(String categoryName) {
 		
-		List<Product> productList=new ArrayList<>();
+		List<ProductSdo> productList=new ArrayList<>();
 		
-		 productList=jdbcTemplate.query("SELECT *from Product where category='"+categoryName+"'", new RowMapper<Product>(){
+		 productList=jdbcTemplate.query("SELECT p.productId,p.productName,p.productDescription,p.units,c.category_name from product p \n" +
+				 "INNER JOIN category c \n" +
+				 "ON p.category = c.category_id" +
+				 " where category='"+categoryName+"'", new RowMapper<ProductSdo>(){
 			   
 			@Override
-			public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+			public ProductSdo mapRow(ResultSet rs, int rowNum) throws SQLException {
 				// TODO Auto-generated method stub
-									
-				Product product=new Product();
+
+				ProductSdo product=new ProductSdo();
 				product.setProductId(rs.getString("productId"));
 				product.setProductName(rs.getString("productName"));
 				product.setProductDescription(rs.getString("productDescription"));
-				product.setProductCategory(rs.getString("category"));
+				product.setProductCategory(rs.getString("category_name"));
 				product.setUnits(rs.getInt("units"));
 				
 				
