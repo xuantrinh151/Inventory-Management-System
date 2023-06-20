@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { Product} from '../Product';
-import { ProductService } from '../services/product.service';
-import { CategoryService } from '../services/category.service';
-import { RouterService } from '../services/router.service';
-import { SharedServiceService } from '../services/shared-service.service';
-import { SuccessfulDialogComponent } from '../successful-dialog/successful-dialog.component';
-import { UnSuccessfulDialogComponent } from '../un-successful-dialog/un-successful-dialog.component';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {CategoryService} from '../services/category.service';
+import {RouterService} from '../services/router.service';
+import {SharedServiceService} from '../services/shared-service.service';
+import {SuccessfulDialogComponent} from '../successful-dialog/successful-dialog.component';
+import {UnSuccessfulDialogComponent} from '../un-successful-dialog/un-successful-dialog.component';
 import {Category} from "../Category";
 
 @Component({
@@ -38,7 +35,7 @@ export class GetAllCategoriesComponent implements OnInit {
         this.ngOnInit();
       }
       else{
-        this.openunSuccessfulDialog();
+        this.openUnSuccessfulDialog();
         this.ngOnInit();
       }
 
@@ -53,14 +50,14 @@ export class GetAllCategoriesComponent implements OnInit {
 
 
   openSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Successfull");
+    this.sharedServices.setdialogtitle("Successful");
     this.sharedServices.setdialogpage("category");
     this.sharedServices.setdialogcontent("Category Deleted Successfully !!");
     this.dialog.open(SuccessfulDialogComponent);
   }
 
-  openunSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Unsuccessfull");
+  openUnSuccessfulDialog() {
+    this.sharedServices.setdialogtitle("Unsuccessful");
     this.sharedServices.setdialogpage("category");
     this.sharedServices.setdialogcontent("Category could not be Deleted !!");
     this.dialog.open(UnSuccessfulDialogComponent);

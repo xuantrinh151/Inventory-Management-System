@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Product } from '../Product';
-import { ProductService } from '../services/product.service';
-import { SharedServiceService } from '../services/shared-service.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Product} from '../Product';
+import {ProductService} from '../services/product.service';
 import {CategoryService} from "../services/category.service";
 
 @Component({
@@ -19,7 +18,7 @@ export class AddProductComponent implements OnInit {
   categoryList:any;
 
 
-  constructor(private productService:ProductService,private categoryService:CategoryService, private sharedServiceService:SharedServiceService) {
+  constructor(private productService:ProductService,private categoryService:CategoryService) {
 
   }
 
@@ -32,19 +31,19 @@ export class AddProductComponent implements OnInit {
 
   addProductForm=new FormGroup({
 
-    productid:new FormControl('',[Validators.required]),
-    productname:new FormControl('',[Validators.required]),
+    productId:new FormControl('',[Validators.required]),
+    productName:new FormControl('',[Validators.required]),
     units: new FormControl('',[Validators.required]),
     category: new FormControl('',[Validators.required]),
     description: new FormControl('',[Validators.required]),
   })
 
-  get productid(){
-    return this.addProductForm.get('productid');
+  get productId(){
+    return this.addProductForm.get('productId');
   }
 
-  get productname(){
-    return this.addProductForm.get('productname');
+  get productName(){
+    return this.addProductForm.get('productName');
   }
 
   get units(){
@@ -61,8 +60,8 @@ export class AddProductComponent implements OnInit {
 
   addProduct(){
 
-    this.product.productId=this.productid?.value;
-    this.product.productName=this.productname?.value;
+    this.product.productId=this.productId?.value;
+    this.product.productName=this.productName?.value;
     this.product.units=this.units?.value;
     this.product.productCategory=this.category?.value;
     this.product.productDescription=this.description?.value;

@@ -37,7 +37,7 @@ export class GetAllProductsComponent implements OnInit {
         this.ngOnInit();
       }
       else{
-        this.openunSuccessfulDialog();
+        this.openUnSuccessfulDialog();
         this.ngOnInit();
       }
 
@@ -52,14 +52,14 @@ export class GetAllProductsComponent implements OnInit {
 
 
   openSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Successfull");
+    this.sharedServices.setdialogtitle("Successful");
     this.sharedServices.setdialogcontent("Product Deleted Successfully !!");
     this.sharedServices.setdialogpage("product");
     this.dialog.open(SuccessfulDialogComponent);
   }
 
-  openunSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Unsuccessfull");
+  openUnSuccessfulDialog() {
+    this.sharedServices.setdialogtitle("Unsuccessful");
     this.sharedServices.setdialogpage("product");
     this.sharedServices.setdialogcontent("Product could not be Deleted !!");
     this.dialog.open(UnSuccessfulDialogComponent);

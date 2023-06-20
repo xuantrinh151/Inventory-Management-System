@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Product } from '../Product';
-import { ProductService } from '../services/product.service';
-import { SharedServiceService } from '../services/shared-service.service';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Category} from "../Category";
 import {CategoryService} from "../services/category.service";
 
@@ -18,7 +15,7 @@ export class AddCategoryComponent implements OnInit {
   successMessage:string ="";
   errMessage: string ="";
 
-  constructor(private categoryService:CategoryService, private sharedServiceService:SharedServiceService) {
+  constructor(private categoryService:CategoryService) {
 
   }
 
