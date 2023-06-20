@@ -1,0 +1,63 @@
+<app-main-nav>
+    <h1>Get All Categories</h1>
+
+<hr>
+    <table id="category">
+        <tr>
+            <th (click)="sort('id')">
+                ID&nbsp;<span class="material-icons white">
+                    unfold_more
+                    </span>
+            </th>
+
+            <th (click)="sort('categoryName')">
+                Category Name&nbsp;<span class="material-icons white">
+                    unfold_more
+                    </span>
+            </th>
+            <th (click)="sort('description')">
+              Category Description&nbsp;<span class="material-icons white">
+                    unfold_more
+                    </span>
+            </th>
+
+            <th>
+                Update
+            </th>
+            <th>
+                Delete
+            </th>
+
+        </tr>
+
+        <tr *ngFor = "let category of categoryList | orderBy: key:reverse">
+            <td>
+                {{category.categoryId}}
+            </td>
+            <td>
+                {{category.categoryName}}
+            </td>
+            <td>
+                {{category.description}}
+            </td>
+
+            <td>
+                <span class="material-icons edit"  (click)="updateCategory(category)">
+                        border_color
+                    </span>
+            </td>
+
+            <td>
+                <span class="material-icons delete" (click)="deleteCategory(category.categoryId)" >
+                    delete
+                    </span>
+
+            </td>
+
+
+        </tr>
+
+
+    </table>
+
+    </app-main-nav>

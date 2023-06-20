@@ -1,0 +1,47 @@
+
+<app-main-nav>
+        <h1>Show Products By Category</h1>
+
+        <hr>
+        <div class="form-control">
+                <form [formGroup] ="categoryForm" (ngSubmit)="getProductByCategory()">
+                        <div class="col-75">
+                                <select id="category" class="drop" name="category" formControlName="category" required>
+                                  <option *ngFor = "let category of categoryList" value="{{category.categoryId}}">{{category.categoryName}}</option>
+                                </select>
+                        </div>
+                        <br>
+                        <input class="submit" type="submit" value="search">
+                </form>
+        </div>
+
+        <table id="product">
+                <tr>
+                    <th *ngFor = "let column of headers">
+                        {{column}}
+                    </th>
+                </tr>
+
+                <tr *ngFor = "let product of productList">
+                    <td>
+                        {{product.productId}}
+                    </td>
+                    <td>
+                        {{product.productName}}
+                    </td>
+                    <td>
+                        {{product.productDescription}}
+                    </td>
+                    <td>
+                        {{product.productCategory}}
+                    </td>
+                    <td>
+                        {{product.units}}
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+</app-main-nav>

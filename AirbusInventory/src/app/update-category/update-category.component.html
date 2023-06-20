@@ -1,0 +1,37 @@
+<app-main-nav>
+  <h1>Update Category</h1>
+
+
+
+  <div class="container p-5">
+    <form [formGroup] ="updateCategoryForm" (ngSubmit)="updateCategory()">
+      <div class="row">
+        <div class="col-25">
+          <label for="cname">Category Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="cname" name="categoryName" placeholder="Category name.."  [(ngModel)]="category.categoryName" formControlName="categoryName" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="description">Category Description</label>
+        </div>
+        <div class="col-75">
+          <textarea id="description" name="description" placeholder="Write something.." style="height:200px"  [(ngModel)]="category.description" formControlName="description" required></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Update product" >
+
+        <br>
+        <label class="error-message">{{ errMessage }}</label>
+        <br>
+        <br>
+        <label class="successMessage">{{ successMessage }}</label>
+
+      </div>
+    </form>
+  </div>
+</app-main-nav>

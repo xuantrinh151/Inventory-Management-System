@@ -1,0 +1,52 @@
+<app-main-nav>
+    <h1>Add Category</h1>
+
+    <hr>
+
+<div class="container p-5">
+    <form [formGroup] ="addCategoryForm" (ngSubmit)="addCategory()">
+
+      <div class="row">
+        <div class="col-25">
+          <label for="pid">Category Id</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="pid" name="productid" placeholder="Category Id.."  formControlName="categoryId">
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="pname">Category Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="pname" name="productname" placeholder="Category name.."  formControlName="categoryName">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="description">Description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="description" name="description" placeholder="Write something.." style="height:200px"  formControlName="description"></textarea>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <input type="submit" value="Add Category">
+
+      <br>
+      <br>
+
+      <label class="error-message">{{ errMessage }}</label>
+      <br>
+      <br>
+      <label class="successMessage">{{ successMessage }}</label>
+
+
+    </div>
+    </form>
+    </div>
+    </app-main-nav>
