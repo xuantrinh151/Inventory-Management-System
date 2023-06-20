@@ -74,7 +74,7 @@ public class ProductServiceRepository {
 	
 	public void addProduct(Product productDetails) {
 		
-		 String INSERT_STATEMENT = "INSERT INTO Product(productId,productName,productDescription,productCategory, units) VALUES (?,?,?,?,?)" ;
+		 String INSERT_STATEMENT = "INSERT INTO Product(productId,productName,productDescription,category, units) VALUES (?,?,?,?,?)" ;
 
 			jdbcTemplate.batchUpdate(INSERT_STATEMENT, new BatchPreparedStatementSetter() {
 				
@@ -98,7 +98,7 @@ public class ProductServiceRepository {
 	
 	public int updateProduct(Product productDetails, String productId) {
 		
-		String query="UPDATE Product set productName='"+productDetails.getProductName()+"',productDescription='"+productDetails.getProductDescription()+"',productCategory='"+productDetails.getProductCategory()+"',units='"+productDetails.getUnits()+"' where productId='"+productId+"' ";  
+		String query="UPDATE Product set productName='"+productDetails.getProductName()+"',productDescription='"+productDetails.getProductDescription()+"',category='"+productDetails.getProductCategory()+"',units='"+productDetails.getUnits()+"' where productId='"+productId+"' ";
 			    return jdbcTemplate.update(query);  
 	}
 	
