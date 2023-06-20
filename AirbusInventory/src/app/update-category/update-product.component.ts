@@ -64,7 +64,7 @@ export class UpdateCategoryComponent implements OnInit {
           this.openSuccessfulDialog();
         }
         else{
-          this.openunSuccessfulDialog();
+          this.openUnSuccessfulDialog();
         }
 
       });
@@ -74,14 +74,14 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   openSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Successfull");
+    this.sharedServices.setdialogtitle("Successful");
     this.sharedServices.setdialogpage("category");
     this.sharedServices.setdialogcontent("Category Updated Successfully !!");
     this.dialog.open(SuccessfulDialogComponent);
   }
 
-  openunSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Unsuccessfull");
+  openUnSuccessfulDialog() {
+    this.sharedServices.setdialogtitle("Unsuccessful");
     this.sharedServices.setdialogpage("category");
     this.sharedServices.setdialogcontent("Category could not be Updated !!");
     this.dialog.open(UnSuccessfulDialogComponent);

@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { Product} from '../Product';
-import { ProductService } from '../services/product.service';
-import { RouterService } from '../services/router.service';
-import { SharedServiceService } from '../services/shared-service.service';
-import { SuccessfulDialogComponent } from '../successful-dialog/successful-dialog.component';
-import { UnSuccessfulDialogComponent } from '../un-successful-dialog/un-successful-dialog.component';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {Product} from '../Product';
+import {ProductService} from '../services/product.service';
+import {RouterService} from '../services/router.service';
+import {SharedServiceService} from '../services/shared-service.service';
+import {SuccessfulDialogComponent} from '../successful-dialog/successful-dialog.component';
+import {UnSuccessfulDialogComponent} from '../un-successful-dialog/un-successful-dialog.component';
 
 @Component({
   selector: 'app-get-all-products',
@@ -30,6 +29,7 @@ export class GetAllProductsComponent implements OnInit {
   deleteProduct(productId: string){
 
     this.productService.deleteProduct(productId).subscribe(data => {
+
 
       if(data)
       {

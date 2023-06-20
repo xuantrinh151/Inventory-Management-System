@@ -12,12 +12,12 @@ export class UnSuccessfulDialogComponent implements OnInit {
 
   title:string="";
   content:string="";
-  constructor(private sharedservice:SharedServiceService,private routerService: RouterService) { }
+  constructor(private sharedService:SharedServiceService,private routerService: RouterService) { }
 
   ngOnInit(): void {
 
-  this.title=this.sharedservice.getdialogtitle();
-  this.content=this.sharedservice.getdialogcontent();
+  this.title=this.sharedService.getdialogtitle();
+  this.content=this.sharedService.getdialogcontent();
 }
 
   refreshPage(){

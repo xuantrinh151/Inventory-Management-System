@@ -13,13 +13,13 @@ export class SuccessfulDialogComponent implements OnInit {
   content:string="";
   page: string="";
 
-  constructor(private sharedservice:SharedServiceService,private routerService: RouterService) { }
+  constructor(private sharedService:SharedServiceService,private routerService: RouterService) { }
 
   ngOnInit(): void {
 
-  this.title=this.sharedservice.getdialogtitle();
-  this.content=this.sharedservice.getdialogcontent();
-  this.page = this.sharedservice.getdialogpage();
+  this.title=this.sharedService.getdialogtitle();
+  this.content=this.sharedService.getdialogcontent();
+  this.page = this.sharedService.getdialogpage();
 }
 
 

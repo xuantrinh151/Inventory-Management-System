@@ -11,7 +11,7 @@ import { RouterService } from '../services/router.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  
+
   successMessage:string ="";
   errMessage: string ="";
 
@@ -21,15 +21,15 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+
   loginForm=new FormGroup({
-    
-    emailid:new FormControl('',[Validators.required,Validators.email]),
+
+    email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required])
   })
 
-  get emailid(){
-    return this.loginForm.get('emailid');
+  get email(){
+    return this.loginForm.get('email');
   }
 
   get password(){
@@ -38,11 +38,11 @@ export class LoginPageComponent implements OnInit {
 
   login(){
 
-    
-    this.loginFormClass.username=this.emailid?.value;
+
+    this.loginFormClass.username=this.email?.value;
     this.loginFormClass.password=this.password?.value;
 
-    
+
     if(this.loginFormClass.username=="")
     {
       this.errMessage="Email Id is required";
@@ -59,9 +59,9 @@ export class LoginPageComponent implements OnInit {
                   localStorage.setItem('token',data.token);
                   if (localStorage.getItem('token') !== null) {
 
-                   
+
                     this.routerService.routeToDashboard();
-                    } 
+                    }
               });
             }
             else{

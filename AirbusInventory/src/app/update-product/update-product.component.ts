@@ -29,14 +29,14 @@ export class UpdateProductComponent implements OnInit {
 
 
   updateProductForm=new FormGroup({
-    productname:new FormControl('',[Validators.required]),
+    productName:new FormControl('',[Validators.required]),
     units: new FormControl('',[Validators.required]),
     category: new FormControl('',[Validators.required]),
     description: new FormControl('',[Validators.required]),
   })
 
-  get productname(){
-    return this.updateProductForm.get('productname');
+  get productName(){
+    return this.updateProductForm.get('productName');
   }
 
   get units(){
@@ -53,7 +53,7 @@ export class UpdateProductComponent implements OnInit {
 
   updateProduct(){
 
-    this.product.productName=this.productname?.value;
+    this.product.productName=this.productName?.value;
     this.product.units=this.units?.value;
     this.product.productCategory=this.category?.value;
     this.product.productDescription=this.description?.value;
@@ -88,7 +88,7 @@ export class UpdateProductComponent implements OnInit {
           this.openSuccessfulDialog();
         }
         else{
-          this.openunSuccessfulDialog();
+          this.openUnSuccessfulDialog();
         }
 
       });
@@ -98,14 +98,14 @@ export class UpdateProductComponent implements OnInit {
   }
 
   openSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Successfull");
+    this.sharedServices.setdialogtitle("Successful");
     this.sharedServices.setdialogpage("product");
     this.sharedServices.setdialogcontent("Product Updated Successfully !!");
     this.dialog.open(SuccessfulDialogComponent);
   }
 
-  openunSuccessfulDialog() {
-    this.sharedServices.setdialogtitle("Unsuccessfull");
+  openUnSuccessfulDialog() {
+    this.sharedServices.setdialogtitle("Unsuccessful");
     this.sharedServices.setdialogpage("product");
     this.sharedServices.setdialogcontent("Product could not be Updated !!");
     this.dialog.open(UnSuccessfulDialogComponent);
